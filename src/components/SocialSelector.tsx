@@ -110,32 +110,28 @@ export default function SocialSelector({
     else setInternal(p);
   };
 
-  // ✅ Updated: PDFs open with custom tab title
   const handleClick = (url: string, title?: string) => {
+    // For PDF files, try multiple methods to ensure they open properly
     if (url.endsWith(".pdf")) {
-      const html = `
-        <html>
-          <head>
-            <title>${title || "Document"} | Brightside</title>
-          </head>
-          <body style="margin:0;padding:0;overflow:hidden">
-            <iframe src="${url}" style="width:100vw;height:100vh;border:none;"></iframe>
-          </body>
-        </html>`;
-      const blob = new Blob([html], { type: "text/html" });
-      const blobUrl = URL.createObjectURL(blob);
-      window.open(blobUrl, "_blank", "noopener,noreferrer");
+      // Method 1: Direct window.open (most common)
+      const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+      
+      // If popup was blocked, try alternative method
+      if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+        // Method 2: Create a temporary link element
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
       return;
     }
 
-    const link = document.createElement("a");
-    link.href = url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    if (title) link.download = title;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // For non-PDF URLs, use standard approach
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
