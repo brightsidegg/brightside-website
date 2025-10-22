@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function Home() {
-  const texts = ["200% awesome Features", "100% Your Control", "0% fees"];
+  const texts = ["200% Awesome Features", "100% Your Control", "0% Fees"];
 
   return (
     <motion.div 
@@ -138,7 +138,7 @@ export default function Home() {
           <img src="/juicy.png" alt="Juicy logo" className="h-4 w-auto sm:h-6" />
           <div className="flex flex-col items-end">
             <span className="text-[10px] sm:text-xs text-gray-500">A product of</span>
-            <span className="text-xs sm:text-sm font-semibold text-gray-700">Juicy Labs Ltd</span>
+            <span className="text-xs sm:text-sm font-semibold text-gray-700">Juicy Labs</span>
             <span className="text-[10px] sm:text-xs text-gray-500">Copyright 2025</span>
           </div>
         </a>
