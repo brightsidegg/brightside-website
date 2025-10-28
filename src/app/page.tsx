@@ -108,12 +108,12 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity"
-              aria-label="Juicy Labs Ltd on X"
+              aria-label="Juicy Labs on X"
             >
               <div className="flex items-center gap-1 text-xs text-gray-500">
                 <span>A product of</span>
                 <img src="/juicy.png" alt="Juicy logo" className="h-4 w-auto" />
-                <span className="font-semibold text-gray-700">Juicy Labs Ltd</span>
+                <span className="font-semibold text-gray-700">Juicy Labs</span>
                 <span>Copyright 2025</span>
               </div>
             </a>
@@ -133,7 +133,7 @@ export default function Home() {
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center gap-1 sm:gap-2 hover:opacity-80 transition-opacity"
-          aria-label="Juicy Labs Ltd on X"
+          aria-label="Juicy Labs on X"
         >
           <img src="/juicy.png" alt="Juicy logo" className="h-4 w-auto sm:h-6" />
           <div className="flex flex-col items-end">
