@@ -1,6 +1,7 @@
 "use client";
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export type Platform = {
   name: string;
@@ -22,6 +23,7 @@ export default function SocialSelector({
   onChange,
   className = "",
 }: Props) {
+  const router = useRouter();
   const defaultPlatforms: Platform[] = useMemo(
     () => [
       {
@@ -70,7 +72,7 @@ export default function SocialSelector({
             />
           </svg>
         ),
-        url: "/privacy_policy.pdf",
+        url: "/privacy-policy",
       },
       {
         name: "Terms & Conditions",
@@ -93,7 +95,7 @@ export default function SocialSelector({
             />
           </svg>
         ),
-        url: "/tc.pdf",
+        url: "/terms-condition",
       },
     ],
     []
@@ -111,26 +113,12 @@ export default function SocialSelector({
   };
 
   const handleClick = (url: string, title?: string) => {
-    // For PDF files, try multiple methods to ensure they open properly
-    if (url.endsWith(".pdf")) {
-      // Method 1: Direct window.open (most common)
-      const newWindow = window.open(url, "_blank", "noopener,noreferrer");
-      
-      // If popup was blocked, try alternative method
-      if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-        // Method 2: Create a temporary link element
-        const link = document.createElement('a');
-        link.href = url;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
+    // Internal route: client-side navigation
+    if (url.startsWith("/")) {
+      router.push(url);
       return;
     }
-
-    // For non-PDF URLs, use standard approach
+    // External link: open in new tab
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
