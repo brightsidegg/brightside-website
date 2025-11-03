@@ -95,7 +95,7 @@ export default function SocialSelector({
             />
           </svg>
         ),
-        url: "/terms-condition",
+        url: "/terms-conditions",
       },
     ],
     []
