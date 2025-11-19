@@ -242,13 +242,13 @@ export default function TermsConditionsPage() {
           </section>
 
           <section className="bg-neutral-50 rounded-lg p-6 mt-8">
-            <h2 className="text-2xl font-semibold text-neutral-900 mb-4">Contact Us</h2>
+            <h2 className="text-2xl font-semibold text-neutral-900 mb-4">Contact with Us</h2>
             <p className="text-neutral-700 leading-relaxed">
               For any questions regarding these Terms and Conditions, please email{' '}
               <a href="mailto:admin@brightside.gg" className="text-blue-600 hover:underline">
                 admin@brightside.gg
               </a>{' '}
-              or contact us through our official channels.
+              or contact with us through our official channels.
             </p>
           </section>
         </div>
