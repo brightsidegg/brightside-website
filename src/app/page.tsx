@@ -261,7 +261,7 @@ export default function Home() {
               <path d="M6.34299 17.657H6.35299" stroke="#FF6401" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M6.34299 6.34302H6.35299" stroke="#FF6401" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-              <span className="text-[#FF6401] font-sf-pro-rounded font-medium text-lg sm:text-2xl">Join Early Beta</span>
+              <span className="text-[#FF6401] font-sf-pro-rounded font-medium text-lg sm:text-2xl">Join Waitlist</span>
             </button>
         </motion.div>
 

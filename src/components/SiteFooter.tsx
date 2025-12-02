@@ -1,35 +1,46 @@
 'use client';
 
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-
-let footerMotionPlayed = false;
+import { motion, useInView } from "framer-motion";
 
 export default function SiteFooter() {
-  const shouldAnimateFooter = !footerMotionPlayed;
+  const footerRef = useRef<HTMLElement>(null);
+  const isInView = useInView(footerRef, { once: true, amount: 0.1, margin: "0px 0px -100px 0px" });
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (!footerMotionPlayed) {
-      footerMotionPlayed = true;
-    }
+    setMounted(true);
+    // Fallback: ensure footer is visible after a delay if viewport check didn't trigger
+    const timer = setTimeout(() => {
+      // Force visibility if still not visible
+      if (footerRef.current) {
+        const rect = footerRef.current.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight + 200; // Add buffer
+        if (!isVisible && footerRef.current.style.opacity === '0') {
+          footerRef.current.style.opacity = '1';
+          footerRef.current.style.transform = 'translateY(0)';
+        }
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <motion.footer
+      ref={footerRef}
       className="py-6"
-      initial={shouldAnimateFooter ? { opacity: 0, y: 30 } : false}
-      whileInView={shouldAnimateFooter ? { opacity: 1, y: 0 } : undefined}
-      viewport={shouldAnimateFooter ? { once: true, amount: 0.2 } : undefined}
-      transition={shouldAnimateFooter ? { duration: 0.6, ease: "easeOut" } : undefined}
+      initial={{ opacity: 0, y: 30 }}
+      animate={mounted && isInView ? { opacity: 1, y: 0 } : mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <motion.div
           className="flex flex-col items-center gap-6 sm:hidden"
-          initial={shouldAnimateFooter ? { opacity: 0, y: 24 } : false}
-          whileInView={shouldAnimateFooter ? { opacity: 1, y: 0 } : undefined}
-          viewport={shouldAnimateFooter ? { once: true, amount: 0.25 } : undefined}
-          transition={shouldAnimateFooter ? { duration: 0.5, ease: "easeOut", delay: 0.1 } : undefined}
+          initial={{ opacity: 0, y: 24 }}
+          animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
         >
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-[#666666] font-sf-pro-rounded font-medium">
             <a
@@ -66,10 +77,9 @@ export default function SiteFooter() {
 
         <motion.div
           className="hidden sm:flex flex-row justify-center items-center relative"
-          initial={shouldAnimateFooter ? { opacity: 0, y: 24 } : false}
-          whileInView={shouldAnimateFooter ? { opacity: 1, y: 0 } : undefined}
-          viewport={shouldAnimateFooter ? { once: true, amount: 0.3 } : undefined}
-          transition={shouldAnimateFooter ? { duration: 0.5, ease: "easeOut", delay: 0.15 } : undefined}
+          initial={{ opacity: 0, y: 24 }}
+          animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.35 }}
         >
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-[#666666] font-sf-pro-rounded font-medium">
             <a

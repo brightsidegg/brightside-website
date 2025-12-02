@@ -8,7 +8,7 @@ import type { ComponentType, MouseEvent, SVGProps } from "react";
 import { FileText, Headset, Home as House } from "lucide-react";
 import { motion } from "framer-motion";
 
-type NavKey = "home" | "docs" | "connect";
+type NavKey = "home" | "docs" | "contact-us";
 
 let headerMotionPlayed = false;
 
@@ -25,7 +25,7 @@ const navIconClass = "h-5 w-5 sm:h-6 sm:w-6 md:hidden";
 
 export default function SiteHeader() {
   const pathname = usePathname();
-  const [activeNav, setActiveNav] = useState<NavKey>(pathname === "/connect" ? "connect" : "home");
+  const [activeNav, setActiveNav] = useState<NavKey>(pathname === "/contact-us" ? "contact-us" : "home");
   const shouldAnimateHeader = !headerMotionPlayed;
 
   useEffect(() => {
@@ -48,8 +48,8 @@ export default function SiteHeader() {
   };
 
   useEffect(() => {
-    if (pathname === "/connect") {
-      setActiveNav("connect");
+    if (pathname === "/contact-us") {
+      setActiveNav("contact-us");
       return;
     }
 
@@ -72,9 +72,9 @@ export default function SiteHeader() {
       external: true,
     },
     {
-      key: "connect",
-      label: "Connect",
-      href: "/connect",
+      key: "contact-us",
+      label: "Contact Us",
+      href: "/contact-us",
       icon: Headset,
     },
   ];
@@ -186,7 +186,7 @@ export default function SiteHeader() {
               <path d="M6.34299 6.34302H6.35299" stroke="#FF6401" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             <span className="text-[#FF6401] font-sf-pro-rounded font-medium text-sm whitespace-nowrap">
-              Join Early Beta
+              Join Waitlist
             </span>
           </motion.button>
         </motion.div>
