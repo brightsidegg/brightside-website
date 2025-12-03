@@ -249,7 +249,7 @@ export default function ConnectPage() {
                             {activeSessions.map((account: any, index: number) => (
                               <div key={index} className="flex items-center justify-center gap-2">
                                 <span className="text-sm text-[#666666] font-sf-pro-rounded font-semibold">
-                                  {index + 1}. {account.email || 'N/A'}
+                                  {account.email || 'N/A'}
                                 </span>
                                 <span
                                   className={`text-xs px-2 py-0.5 rounded-full font-sf-pro-rounded font-semibold ${
