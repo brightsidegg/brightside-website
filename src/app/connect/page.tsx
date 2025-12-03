@@ -7,11 +7,11 @@ import SiteFooter from "@/components/SiteFooter";
 import { useAccount } from 'wagmi';
 import { useAppKit } from '@reown/appkit/react';
 import { useApiKeySetup } from '@/hooks/useApiKeySetup';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { encryptCredentials } from '@/utils/encryption';
 import QRCode from 'qrcode';
 import { Toaster, toast } from 'sonner';
-import { Copy } from 'lucide-react';
+import { Copy, ChevronDown, ChevronUp } from 'lucide-react';
 import localFont from 'next/font/local';
 
 const doodleFont = localFont({
@@ -37,6 +37,51 @@ export default function ConnectPage() {
   const [qrCodeUrl, setQrCodeUrl] = useState<string>('');
   const [hasChecked, setHasChecked] = useState(false);
   const [encryptedData, setEncryptedData] = useState<string>('');
+  const [activeSessions, setActiveSessions] = useState<any[] | null>(null);
+  const [isCheckingSessions, setIsCheckingSessions] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  // Function to check active sessions
+  const checkActiveSessions = useCallback(async (showToast = false) => {
+    if (!address) return;
+
+    try {
+      setIsCheckingSessions(true);
+      const response = await fetch(`https://api.brightside.gg/api/public/wallet/${address}`);
+      
+      if (!response.ok) {
+        if (showToast) {
+          toast.error('Failed to fetch active sessions');
+        }
+        setActiveSessions(null);
+        return;
+      }
+
+      const result = await response.json();
+      
+      if (result.success && result.data && Array.isArray(result.data) && result.data.length > 0) {
+        // Response is always an array
+        setActiveSessions(result.data);
+        if (showToast) {
+          const activeCount = result.data.filter((acc: any) => acc.status === 'active').length;
+          toast.success(`${result.data.length} account(s) found${activeCount > 0 ? `, ${activeCount} active` : ''}`);
+        }
+      } else {
+        setActiveSessions(null);
+        if (showToast) {
+          toast.info('No accounts found');
+        }
+      }
+    } catch (error) {
+      console.error('Failed to check active sessions:', error);
+      setActiveSessions(null);
+      if (showToast) {
+        toast.error('Failed to check active sessions');
+      }
+    } finally {
+      setIsCheckingSessions(false);
+    }
+  }, [address]);
 
   // Auto-check account when wallet connects (only once)
   useEffect(() => {
@@ -45,6 +90,15 @@ export default function ConnectPage() {
       checkAccount();
     }
   }, [isConnected, address, hasChecked, isChecking, checkAccount]);
+
+  // Check for active sessions when wallet is connected
+  useEffect(() => {
+    if (isConnected && address) {
+      checkActiveSessions(false);
+    } else {
+      setActiveSessions(null);
+    }
+  }, [isConnected, address, checkActiveSessions]);
 
   // Reset check flag when wallet disconnects
   useEffect(() => {
@@ -180,20 +234,54 @@ export default function ConnectPage() {
                     </p>
                   </div>
                 ) : hasAccount ? (
-                  <button
-                    onClick={generateApiKey}
-                    disabled={isGenerating}
-                    className="bg-[#16c75a] hover:bg-[#14b350] text-white font-sf-pro-rounded font-semibold text-lg px-20 py-4 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 mx-auto"
-                  >
-                    {isGenerating ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        <span>Signing...</span>
-                      </>
-                    ) : (
-                      'Approve Brightside'
+                  <div className="flex flex-col items-center gap-4">
+                    {/* Linked Accounts Dropdown */}
+                    {activeSessions && (
+                      <div className="flex flex-col items-center text-center">
+                        <span
+                          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                          className="text-[#222222] font-sf-pro-rounded font-medium text-lg cursor-pointer flex items-center justify-center gap-2"
+                        >
+                          Linked Accounts {isDropdownOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                        </span>
+                        {isDropdownOpen && (
+                          <div className="mt-2 text-center space-y-2">
+                            {activeSessions.map((account: any, index: number) => (
+                              <div key={index} className="flex items-center justify-center gap-2">
+                                <span className="text-sm text-[#666666] font-sf-pro-rounded font-semibold">
+                                  {index + 1}. {account.email || 'N/A'}
+                                </span>
+                                <span
+                                  className={`text-xs px-2 py-0.5 rounded-full font-sf-pro-rounded font-semibold ${
+                                    account.status === 'active'
+                                      ? 'bg-[#16c75a] text-white'
+                                      : 'bg-[#e0e0e0] text-[#666666]'
+                                  }`}
+                                >
+                                  {account.status === 'active' ? 'Active' : 'Inactive'}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     )}
-                  </button>
+                    
+                    <button
+                      onClick={generateApiKey}
+                      disabled={isGenerating}
+                      className="bg-[#16c75a] hover:bg-[#14b350] text-white font-sf-pro-rounded font-semibold text-lg px-20 py-4 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 mx-auto"
+                    >
+                      {isGenerating ? (
+                        <>
+                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          <span>Signing...</span>
+                        </>
+                      ) : (
+                        'Approve Brightside'
+                      )}
+                    </button>
+                  </div>
                 ) : lighterError ? (
                   <div className="bg-red-50 border border-red-200 rounded-2xl px-6 py-4 max-w-md mx-auto">
                     <p className="text-sm text-red-600 font-sf-pro-rounded font-medium mb-1">
