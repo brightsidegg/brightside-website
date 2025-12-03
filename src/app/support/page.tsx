@@ -30,9 +30,10 @@ export default function SupportPage() {
             transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
             className="space-y-4"
           >
-            <h1 className="text-5xl sm:text-6xl font-your-doodle font-semibold text-[#FF4D1B] ">Connect with Us</h1>
+            <h1 className="text-5xl sm:text-6xl font-your-doodle font-semibold text-[#FF4D1B] ">Contact Us
+            </h1>
             <p className="text-base max-w-md text-center mx-auto sm:text-lg text-[#5E6B7F] font-sf-pro-rounded">
-              Whether you need help navigating Brightside or just want to share feedback, our team is ready to respond.
+Got questions about Brightside or feedback for us? We’re here and ready to help.
             </p>
           </motion.div>
 

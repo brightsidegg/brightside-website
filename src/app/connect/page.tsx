@@ -102,10 +102,10 @@ export default function ConnectPage() {
     <div className="min-h-screen bg-white text-[#1D2532] flex flex-col">
       <Toaster position="top-center" richColors />
       <SiteHeader />
-      <main className="flex-1 flex items-center justify-center px-4 py-8">
+      <main className="flex-1 flex items-center justify-center px-4 py-8 pt-16 sm:pt-20">
         <div className="max-w-lg w-full text-center">
           {/* Logos Section - Side by Side */}
-          <div className="flex justify-center items-center gap-4 mb-8">
+          <div className="flex justify-center items-center gap-4 mb-8 relative">
             {/* Brightside Logo */}
             <div className="flex items-center gap-2">
               <Image
@@ -208,7 +208,7 @@ export default function ConnectPage() {
             )}
 
             {/* Step 3: QR Code Generated */}
-            {credentials && qrCodeUrl && (
+            {isConnected && credentials && qrCodeUrl && (
               <>
                 {/* QR Code Display */}
                 <div className="flex justify-center mb-6">

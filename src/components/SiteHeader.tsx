@@ -246,7 +246,7 @@ export default function SiteHeader() {
                 <path d="M6.34299 6.34302H6.35299" stroke="#FF6401" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <span className="text-[#FF6401] font-sf-pro-rounded font-medium text-sm whitespace-nowrap">
-                Join Early Beta
+                Join Waitlist
               </span>
             </motion.button>
           )}
