@@ -63,7 +63,7 @@ export default function ConnectPage() {
         // Response is always an array
         setActiveSessions(result.data);
         if (showToast) {
-          const activeCount = result.data.filter((acc: any) => acc.status === 'active').length;
+          const activeCount = result.data.filter((acc: any) => acc.active === true).length;
           toast.success(`${result.data.length} account(s) found${activeCount > 0 ? `, ${activeCount} active` : ''}`);
         }
       } else {
@@ -253,12 +253,12 @@ export default function ConnectPage() {
                                 </span>
                                 <span
                                   className={`text-xs px-2 py-0.5 rounded-full font-sf-pro-rounded font-semibold ${
-                                    account.status === 'active'
+                                    account.active === true
                                       ? 'bg-[#16c75a] text-white'
                                       : 'bg-[#e0e0e0] text-[#666666]'
                                   }`}
                                 >
-                                  {account.status === 'active' ? 'Active' : 'Inactive'}
+                                  {account.active === true ? 'Active' : 'Inactive'}
                                 </span>
                               </div>
                             ))}
