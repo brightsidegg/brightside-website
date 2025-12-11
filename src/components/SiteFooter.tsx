@@ -62,7 +62,7 @@ export default function SiteFooter() {
             href="https://x.com/juicy_ag"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity sm:left-[-70px]"
           >
             <img src="/juicy.png" alt="Juicy Labs logo" className="h-8 w-auto" />
             <div className="flex flex-col items-center text-center font-sf-pro-rounded">

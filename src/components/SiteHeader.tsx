@@ -114,7 +114,7 @@ export default function SiteHeader() {
             className="flex flex-shrink-0 items-center cursor-pointer"
           >
             <Image
-              src="/brightside.gif"
+              src="/brightSide_logo.png"
               alt="BrightSide Animation"
               width={160}
               height={60}
@@ -210,7 +210,7 @@ export default function SiteHeader() {
               transition={shouldAnimateHeader ? { duration: 0.5, ease: "easeOut", delay: 0.3 } : undefined}
             >
               <span className="text-[#FF6401] font-sf-pro-rounded font-semibold text-xs sm:text-sm">
-                  Connect wallet
+                  Connect
                 </span>
             </motion.button>
           ) : (

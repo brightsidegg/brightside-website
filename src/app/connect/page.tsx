@@ -12,12 +12,7 @@ import { encryptCredentials } from '@/utils/encryption';
 import QRCode from 'qrcode';
 import { Toaster, toast } from 'sonner';
 import { Copy, ChevronDown, ChevronUp } from 'lucide-react';
-import localFont from 'next/font/local';
 
-const doodleFont = localFont({
-  src: '../../font/Your Doodle Font.otf',
-  display: 'swap',
-});
 
 export default function ConnectPage() {
   const { open } = useAppKit();
@@ -158,42 +153,16 @@ export default function ConnectPage() {
       <SiteHeader />
       <main className="flex-1 flex items-center justify-center px-4 py-8 pt-16 sm:pt-20">
         <div className="max-w-lg w-full text-center">
-          {/* Logos Section - Side by Side */}
-          <div className="flex justify-center items-center gap-4 mb-8 relative">
-            {/* Brightside Logo */}
-            <div className="flex items-center gap-2">
-              <Image
-                src="/brightSide_logo.png"
-                alt="Brightside"
-                width={40}
-                height={40}
-                className="w-10 h-10"
-              />
-              <span className={`text-[36px] text-[#fa5908] uppercase tracking-tight leading-[52px] ${doodleFont.className}`}>
-                BRiGHTSiDE
-              </span>
-            </div>
-
-            {/* Dots Separator */}
-            <div className="flex gap-1.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
-              <div className="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
-              <div className="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
-            </div>
-
-            {/* Lighter Logo */}
-            <div className="flex items-center gap-2">
-              <Image
-                src="/lighter.png"
-                alt="Lighter"
-                width={30}
-                height={60}
-                className="w-5 h-10"
-              />
-              <span className="text-2xl font-medium text-[#FF6401] font-sf-pro-rounded">
-                Lighter
-              </span>
-            </div>
+          {/* Logos Section - Banner */}
+          <div className="flex justify-center mb-8 ml-[-20px] sm:ml-[-50px]">
+            <Image
+              src="/brightside-lighter-banner.svg"
+              alt="Brightside + Lighter"
+              width={472}
+              height={62}
+              className="w-auto h-12 sm:h-[62px]"
+              priority
+            />
           </div>
 
           {/* Content based on state */}
@@ -209,9 +178,9 @@ export default function ConnectPage() {
                 </p>
                 <button
                   onClick={() => open()}
-                  className="bg-[#16c75a] hover:bg-[#14b350] text-white font-sf-pro-rounded font-semibold text-lg px-20 py-4 rounded-full transition-all duration-200"
+                  className="bg-[#FF6401] hover:bg-[#FF6402] text-white font-sf-pro-rounded font-semibold text-lg px-20 py-4 rounded-full transition-all duration-200 hover:cursor-pointer"
                 >
-                  Connect wallet
+                  Connect
                 </button>
               </>
             )}
@@ -270,7 +239,7 @@ export default function ConnectPage() {
                     <button
                       onClick={generateApiKey}
                       disabled={isGenerating}
-                      className="bg-[#16c75a] hover:bg-[#14b350] text-white font-sf-pro-rounded font-semibold text-lg px-20 py-4 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 mx-auto"
+                      className="bg-[#FF6401] hover:bg-[#FF6402] text-white font-sf-pro-rounded font-semibold text-lg px-20 py-4 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 mx-auto"
                     >
                       {isGenerating ? (
                         <>
@@ -315,7 +284,7 @@ export default function ConnectPage() {
                 {/* Copy QR Code Button */}
                 <button
                   onClick={handleCopyQR}
-                  className="bg-[#16c75a] hover:bg-[#14b350] text-white font-sf-pro-rounded font-semibold text-lg px-16 py-4 rounded-full transition-all duration-200 flex items-center justify-center gap-2 mx-auto"
+                  className="bg-[#FF6401] hover:bg-[#FF6402] text-white font-sf-pro-rounded font-semibold text-lg px-16 py-4 rounded-full transition-all duration-200 flex items-center justify-center gap-2 mx-auto"
                 >
                   <Copy className="w-[18px] h-[18px]" />
                   Copy QR Code
