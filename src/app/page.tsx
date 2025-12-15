@@ -247,7 +247,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <button
-              onClick={() => window.open('https://forms.gle/VF5BjRiMdWb3LB7c8', '_blank')}
+              onClick={() => window.open('https://apps.apple.com/us/app/brightside-onchain-markets/id6754800508', '_blank')}
               className="bg-neutral-100 hover:bg-neutral-200 rounded-full px-6 py-3 sm:px-8 sm:py-4 flex items-center gap-3 transition-colors group cursor-pointer"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" className="group-hover:rotate-180 transition-transform duration-500 sm:w-12 sm:h-12">
@@ -261,7 +261,7 @@ export default function Home() {
               <path d="M6.34299 17.657H6.35299" stroke="#FF6401" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M6.34299 6.34302H6.35299" stroke="#FF6401" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-              <span className="text-[#FF6401] font-sf-pro-rounded font-medium text-lg sm:text-2xl">Join Waitlist</span>
+              <span className="text-[#FF6401] font-sf-pro-rounded font-medium text-lg sm:text-2xl">Get the app</span>
             </button>
         </motion.div>
 

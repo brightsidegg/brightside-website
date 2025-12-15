@@ -215,7 +215,7 @@ export default function SiteHeader() {
             </motion.button>
           ) : (
             <motion.button
-              onClick={() => window.open("https://forms.gle/VF5BjRiMdWb3LB7c8", "_blank")}
+              onClick={() => window.open("https://apps.apple.com/us/app/brightside-onchain-markets/id6754800508", "_blank")}
               className="bg-neutral-100 hover:bg-neutral-200 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 flex items-center gap-1.5 transition-colors group whitespace-nowrap flex-shrink-0"
               initial={shouldAnimateHeader ? { opacity: 0, y: -10 } : false}
               animate={{ opacity: 1, y: 0 }}
@@ -246,7 +246,7 @@ export default function SiteHeader() {
                 <path d="M6.34299 6.34302H6.35299" stroke="#FF6401" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <span className="text-[#FF6401] font-sf-pro-rounded font-medium text-sm whitespace-nowrap">
-                Join Waitlist
+                Get the app
               </span>
             </motion.button>
           )}
