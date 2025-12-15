@@ -44,7 +44,7 @@ export default function TermsConditionsPage() {
               Services under any applicable law.
             </p>
             <p className="text-neutral-700 leading-relaxed">
-              <strong>Prohibited Jurisdictions:</strong> Brightside is unavailable to residents of the United States, India, China, Iran, 
+              <strong>Prohibited Jurisdictions:</strong> Brightside is unavailable to residents of the United States, China, Iran, 
               North Korea, Cuba, Syria, Crimea, or any other jurisdiction subject to UK, EU, or UN sanctions, or where 
               the use of similar digital services is prohibited by local law.
             </p>
