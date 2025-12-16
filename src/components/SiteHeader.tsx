@@ -33,7 +33,7 @@ export default function SiteHeader() {
   const { address, isConnected } = useAccount();
   const { disconnect } = useDisconnect();
   const { open } = useAppKit();
-  
+
   const isConnectPage = pathname === '/connect';
 
   useEffect(() => {
@@ -89,21 +89,21 @@ export default function SiteHeader() {
 
   const linkClasses = (key: NavKey) =>
     [
-      "flex flex-col items-center gap-1 text-[10px] font-sf-pro-rounded font-semibold tracking-[0.15em] uppercase transition-colors",
+      "flex flex-col items-center gap-1 text-[10px] font-brightside-sans font-semibold tracking-[0.15em] uppercase transition-colors",
       "md:flex-row md:gap-2 md:text-sm md:tracking-normal md:normal-case",
       activeNav === key ? "text-[#FF6401]" : "text-[#94A3B8]",
     ].join(" ");
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 bg-white"
+      className="hidden md:block fixed top-0 left-0 right-0 z-50 bg-white"
       initial={shouldAnimateHeader ? { y: -40, opacity: 0 } : false}
       animate={{ y: 0, opacity: 1 }}
       transition={shouldAnimateHeader ? { duration: 0.6, ease: "easeOut" } : undefined}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="flex items-center justify-between h-16 sm:h-20 gap-3"
+          className="flex items-center justify-between h-20 sm:h-24 gap-4"
           initial={shouldAnimateHeader ? { opacity: 0, y: -12 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={shouldAnimateHeader ? { duration: 0.5, ease: "easeOut", delay: 0.1 } : undefined}
@@ -172,7 +172,7 @@ export default function SiteHeader() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={shouldAnimateHeader ? { duration: 0.5, ease: "easeOut", delay: 0.3 } : undefined}
               >
-                <span className="text-[#FF6401] font-sf-pro-rounded font-semibold text-xs sm:text-sm font-mono">
+                <span className="text-[#FF6401] font-brightside-sans font-semibold text-xs sm:text-sm font-mono">
                   {address?.slice(0, 4)}...{address?.slice(-3)}
                 </span>
                 <svg className={`w-3 h-3 sm:w-4 sm:h-4 transition-transform text-[#FF6401] ${showWalletMenu ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -193,7 +193,7 @@ export default function SiteHeader() {
                         disconnect();
                         setShowWalletMenu(false);
                       }}
-                      className="w-full px-4 py-3 text-left text-sm font-sf-pro-rounded text-red-600 hover:bg-red-50 transition-colors"
+                      className="w-full px-4 py-3 text-left text-sm font-brightside-sans text-red-600 hover:bg-red-50 transition-colors"
                     >
                       Disconnect
                     </button>
@@ -209,9 +209,9 @@ export default function SiteHeader() {
               animate={{ opacity: 1, y: 0 }}
               transition={shouldAnimateHeader ? { duration: 0.5, ease: "easeOut", delay: 0.3 } : undefined}
             >
-              <span className="text-[#FF6401] font-sf-pro-rounded font-semibold text-xs sm:text-sm">
-                  Connect
-                </span>
+              <span className="text-[#FF6401] font-brightside-sans font-semibold text-xs sm:text-sm">
+                Connect
+              </span>
             </motion.button>
           ) : (
             <motion.button
@@ -245,7 +245,7 @@ export default function SiteHeader() {
                 <path d="M6.34299 17.657H6.35299" stroke="#FF6401" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M6.34299 6.34302H6.35299" stroke="#FF6401" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span className="text-[#FF6401] font-sf-pro-rounded font-medium text-sm whitespace-nowrap">
+              <span className="text-[#FF6401] font-brightside-sans font-medium text-sm whitespace-nowrap">
                 Get the app
               </span>
             </motion.button>

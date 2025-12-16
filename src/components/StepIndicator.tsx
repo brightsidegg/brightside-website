@@ -25,7 +25,7 @@ export default function StepIndicator({ steps, onStepClick }: StepIndicatorProps
             whileHover={step.status !== 'pending' ? { scale: 1.05 } : {}}
             whileTap={step.status !== 'pending' ? { scale: 0.95 } : {}}
             className={`
-              relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full font-sf-pro-rounded font-semibold text-sm sm:text-base
+              relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full font-brightside-sans font-semibold text-sm sm:text-base
               transition-all duration-300
               ${step.status === 'completed' 
                 ? 'bg-green-500 text-white' 

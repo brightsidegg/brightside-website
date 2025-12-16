@@ -31,7 +31,7 @@ export default function ContactUsPage() {
             className="space-y-4"
           >
             <h1 className="text-5xl sm:text-6xl font-your-doodle font-semibold text-[#FF4D1B] ">Contact Us</h1>
-            <p className="text-base max-w-md text-center mx-auto sm:text-lg text-[#5E6B7F] font-sf-pro-rounded">
+            <p className="text-base max-w-md text-center mx-auto sm:text-lg text-[#5E6B7F] font-brightside-sans">
               Whether you need help navigating Brightside or just want to share feedback, our team is ready to respond.
             </p>
           </motion.div>
@@ -42,7 +42,7 @@ export default function ContactUsPage() {
             transition={{ delay: 0.4, duration: 0.5, ease: "easeOut" }}
             className="mt-12 bg-white border border-[#E7EBF5] rounded-[32px] p-8 sm:p-10 shadow-[0_20px_50px_rgba(15,23,42,0.08)] flex flex-col items-center gap-3"
           >
-            <span className="text-sm uppercase tracking-[0.2em] text-[#97A3B6] font-semibold font-sf-pro-rounded">
+            <span className="text-sm uppercase tracking-[0.2em] text-[#97A3B6] font-semibold font-brightside-sans">
               E-mail
             </span>
             <motion.a
@@ -50,7 +50,7 @@ export default function ContactUsPage() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="text-2xl sm:text-3xl font-sf-pro-rounded font-semibold text-[#0F172A] hover:text-[#FF6401] transition-colors"
+              className="text-2xl sm:text-3xl font-brightside-sans font-semibold text-[#0F172A] hover:text-[#FF6401] transition-colors"
             >
               admin@brightside.gg
             </motion.a>
