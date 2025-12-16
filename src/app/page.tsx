@@ -267,7 +267,7 @@ export default function Home() {
             <TextReveal>We wanted trading to feel different. <Marker>Lighter. Calmer.</Marker> More in tune with the way the world actually moves.</TextReveal>
             <TextReveal>Because today, you don't wait for markets to open. They're already open somewhere.</TextReveal>
             <TextReveal>BTC and ETH moving through every timezone. Forex flowing from session to session. Stocks like NVIDIA, Microsoft, and Google shifting with global momentum.</TextReveal>
-            <TextReveal>There's always something happening—even on the weekend.</TextReveal>
+            <TextReveal>There's always something happening even on the weekend.</TextReveal>
             <TextReveal>So why does trading still feel like sitting at a desk?</TextReveal>
 
             <div ref={brightsideSectionRef} className="py-8 text-center">
@@ -286,7 +286,7 @@ export default function Home() {
             <TextReveal>No clutter, no noise, no steep learning curve. And <Marker>no usage fees</Marker> because you shouldn't pay simply for showing up.</TextReveal>
             <TextReveal>Just a unified space that feels intuitive the moment you open it.</TextReveal>
             <TextReveal>Brightside lets you step into the markets without the weight. You see what matters. You move at your pace. You keep control of your wallet, your funds, your time.</TextReveal>
-            <TextReveal>It's trading that feels natural. Trading that feels good. Trading that meets you where you are—mornings, late nights, slow afternoons, and everything in between.</TextReveal>
+            <TextReveal>It's trading that feels natural. Trading that feels good. Trading that meets you where you are mornings, late nights, slow afternoons, and everything in between.</TextReveal>
             <TextReveal className="pt-8 font-semibold text-black">Because markets never sleep. <br /><span className="text-gray-400 font-normal">And neither does opportunity.</span></TextReveal>
           </div>
 
