@@ -37,41 +37,41 @@ html {
   font-family: "YourDoodle", system-ui, -apple-system, sans-serif;
 }
 
-/* SF Pro Rounded Font */
+/* Brightside Sans Font */
 @font-face {
-  font-family: "SF Pro Rounded";
-  src: url("../font/SF-Pro-Rounded-Regular.otf") format("opentype");
+  font-family: "Brightside Sans";
+  src: url("/assets/BrightsideSans-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "SF Pro Rounded";
-  src: url("../font/SF-Pro-Rounded-Medium.otf") format("opentype");
+  font-family: "Brightside Sans";
+  src: url("/assets/BrightsideSans-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "SF Pro Rounded";
-  src: url("../font/SF-Pro-Rounded-Semibold.otf") format("opentype");
+  font-family: "Brightside Sans";
+  src: url("/assets/BrightsideSans-Semibold.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "SF Pro Rounded";
-  src: url("../font/SF-Pro-Rounded-Bold.otf") format("opentype");
+  font-family: "Brightside Sans";
+  src: url("/assets/BrightsideSans-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-.font-sf-pro-rounded {
-  font-family: "SF Pro Rounded", system-ui, -apple-system, sans-serif;
+.font-brightside-sans {
+  font-family: "Brightside Sans", system-ui, -apple-system, sans-serif;
 }
 
 .app-icon-card {

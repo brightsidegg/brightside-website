@@ -42,7 +42,21 @@ export default function SiteFooter() {
           animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
         >
-          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-[#666666] font-sf-pro-rounded font-medium">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-[#666666] font-brightside-sans font-medium">
+            <Link href="/" className="hover:text-[#FF6401] transition-colors cursor-pointer">
+              Home
+            </Link>
+            <a
+              href="https://brightsidegg.gitbook.io/docs/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#FF6401] transition-colors cursor-pointer"
+            >
+              Docs
+            </a>
+            <Link href="/support" className="hover:text-[#FF6401] transition-colors cursor-pointer">
+              Support
+            </Link>
             <a
               href="https://x.com/brightside_gg"
               target="_blank"
@@ -65,7 +79,7 @@ export default function SiteFooter() {
             className="flex items-center gap-3 hover:opacity-80 transition-opacity sm:left-[-70px]"
           >
             <img src="/juicy.png" alt="Juicy Labs logo" className="h-8 w-auto" />
-            <div className="flex flex-col items-center text-center font-sf-pro-rounded">
+            <div className="flex flex-col items-center text-center font-brightside-sans">
               <span className="text-xs text-[#778395] font-medium uppercase tracking-[0.08em]">
                 A product of
               </span>
@@ -81,7 +95,21 @@ export default function SiteFooter() {
           animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.35 }}
         >
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-[#666666] font-sf-pro-rounded font-medium">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-[#666666] font-brightside-sans font-medium">
+            <Link href="/" className="hover:text-[#FF6401] transition-colors cursor-pointer">
+              Home
+            </Link>
+            <a
+              href="https://brightsidegg.gitbook.io/docs/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#FF6401] transition-colors cursor-pointer"
+            >
+              Docs
+            </a>
+            <Link href="/support" className="hover:text-[#FF6401] transition-colors cursor-pointer">
+              Support
+            </Link>
             <a
               href="https://x.com/brightside_gg"
               target="_blank"
@@ -104,7 +132,7 @@ export default function SiteFooter() {
             className="absolute right-4 lg:right-8 flex items-center gap-3 text-right hover:opacity-80 transition-opacity"
           >
             <img src="/juicy.png" alt="Juicy Labs logo" className="h-9 w-auto" />
-            <div className="flex flex-col font-sf-pro-rounded">
+            <div className="flex flex-col font-brightside-sans">
               <span className="text-xs text-[#778395] font-medium uppercase tracking-[0.08em]">
                 A product of
               </span>

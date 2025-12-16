@@ -35,7 +35,7 @@ export default function MorphingText({
             duration: 0.5,
             ease: "easeInOut",
           }}
-          className={`font-sf-pro-rounded font-semibold ${className}`}
+          className={`font-brightside-sans font-semibold ${className}`}
         >
           {texts[currentTextIndex]}
         </motion.span>

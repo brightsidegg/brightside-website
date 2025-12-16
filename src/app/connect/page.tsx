@@ -17,7 +17,7 @@ import { Copy, ChevronDown, ChevronUp } from 'lucide-react';
 export default function ConnectPage() {
   const { open } = useAppKit();
   const { address, isConnected } = useAccount();
-  
+
   const {
     isChecking,
     hasAccount,
@@ -43,7 +43,7 @@ export default function ConnectPage() {
     try {
       setIsCheckingSessions(true);
       const response = await fetch(`https://api.brightside.gg/api/public/wallet/${address}`);
-      
+
       if (!response.ok) {
         if (showToast) {
           toast.error('Failed to fetch active sessions');
@@ -53,7 +53,7 @@ export default function ConnectPage() {
       }
 
       const result = await response.json();
-      
+
       if (result.success && result.data && Array.isArray(result.data) && result.data.length > 0) {
         // Response is always an array
         setActiveSessions(result.data);
@@ -114,7 +114,7 @@ export default function ConnectPage() {
     if (credentials) {
       const encrypted = encryptCredentials(credentials);
       setEncryptedData(encrypted);
-      
+
       // Generate simple QR code without logo
       QRCode.toDataURL(encrypted, {
         width: 300,
@@ -170,15 +170,15 @@ export default function ConnectPage() {
             {/* Step 1: Not connected */}
             {!isConnected && (
               <>
-                <h1 className="text-2xl font-sf-pro-rounded font-medium text-[#222222] mb-3 tracking-[-0.02em]">
+                <h1 className="text-2xl font-brightside-sans font-medium text-[#222222] mb-3 tracking-[-0.02em]">
                   Connect your Lighter Wallet
                 </h1>
-                <p className="text-base text-[#666666] font-sf-pro-rounded max-w-sm mx-auto mb-6 leading-relaxed">
+                <p className="text-base text-[#666666] font-brightside-sans max-w-sm mx-auto mb-6 leading-relaxed">
                   If your wallet is already on Lighter, you can bring it into Brightside with just one tap.
                 </p>
                 <button
                   onClick={() => open()}
-                  className="bg-[#FF6401] hover:bg-[#FF6402] text-white font-sf-pro-rounded font-semibold text-lg px-20 py-4 rounded-full transition-all duration-200 hover:cursor-pointer"
+                  className="bg-[#FF6401] hover:bg-[#FF6402] text-white font-brightside-sans font-semibold text-lg px-20 py-4 rounded-full transition-all duration-200 hover:cursor-pointer"
                 >
                   Connect
                 </button>
@@ -188,17 +188,17 @@ export default function ConnectPage() {
             {/* Step 2: Connected but checking/generating */}
             {isConnected && !credentials && (
               <>
-                <h1 className="text-2xl font-sf-pro-rounded font-medium text-[#222222] mb-3 tracking-[-0.02em]">
+                <h1 className="text-2xl font-brightside-sans font-medium text-[#222222] mb-3 tracking-[-0.02em]">
                   Sign the Message
                 </h1>
-                <p className="text-base text-[#666666] font-sf-pro-rounded max-w-sm mx-auto mb-6 leading-relaxed">
+                <p className="text-base text-[#666666] font-brightside-sans max-w-sm mx-auto mb-6 leading-relaxed">
                   If your wallet is already on Lighter, you can bring it into Brightside with just one tap.
                 </p>
 
                 {isChecking ? (
                   <div className="flex items-center justify-center gap-3 py-4">
                     <div className="w-5 h-5 border-2 border-[#16c75a] border-t-transparent rounded-full animate-spin"></div>
-                    <p className="text-sm text-[#666666] font-sf-pro-rounded">
+                    <p className="text-sm text-[#666666] font-brightside-sans">
                       Checking for Lighter account...
                     </p>
                   </div>
@@ -209,7 +209,7 @@ export default function ConnectPage() {
                       <div className="flex flex-col items-center text-center">
                         <span
                           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                          className="text-[#222222] font-sf-pro-rounded font-medium text-lg cursor-pointer flex items-center justify-center gap-2"
+                          className="text-[#222222] font-brightside-sans font-medium text-lg cursor-pointer flex items-center justify-center gap-2"
                         >
                           Linked Accounts {isDropdownOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                         </span>
@@ -217,15 +217,14 @@ export default function ConnectPage() {
                           <div className="mt-2 text-center space-y-2">
                             {activeSessions.map((account: any, index: number) => (
                               <div key={index} className="flex items-center justify-center gap-2">
-                                <span className="text-sm text-[#666666] font-sf-pro-rounded font-semibold">
+                                <span className="text-sm text-[#666666] font-brightside-sans font-semibold">
                                   {account.email || 'N/A'}
                                 </span>
                                 <span
-                                  className={`text-xs px-2 py-0.5 rounded-full font-sf-pro-rounded font-semibold ${
-                                    account.active === true
+                                  className={`text-xs px-2 py-0.5 rounded-full font-brightside-sans font-semibold ${account.active === true
                                       ? 'bg-[#16c75a] text-white'
                                       : 'bg-[#e0e0e0] text-[#666666]'
-                                  }`}
+                                    }`}
                                 >
                                   {account.active === true ? 'Active' : 'Inactive'}
                                 </span>
@@ -235,11 +234,11 @@ export default function ConnectPage() {
                         )}
                       </div>
                     )}
-                    
+
                     <button
                       onClick={generateApiKey}
                       disabled={isGenerating}
-                      className="bg-[#FF6401] hover:bg-[#FF6402] text-white font-sf-pro-rounded font-semibold text-lg px-20 py-4 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 mx-auto"
+                      className="bg-[#FF6401] hover:bg-[#FF6402] text-white font-brightside-sans font-semibold text-lg px-20 py-4 rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 mx-auto"
                     >
                       {isGenerating ? (
                         <>
@@ -253,10 +252,10 @@ export default function ConnectPage() {
                   </div>
                 ) : lighterError ? (
                   <div className="bg-red-50 border border-red-200 rounded-2xl px-6 py-4 max-w-md mx-auto">
-                    <p className="text-sm text-red-600 font-sf-pro-rounded font-medium mb-1">
+                    <p className="text-sm text-red-600 font-brightside-sans font-medium mb-1">
                       No Lighter Account Found
                     </p>
-                    <p className="text-xs text-red-500 font-sf-pro-rounded">
+                    <p className="text-xs text-red-500 font-brightside-sans">
                       Please deposit to Lighter perps first to create your account.
                     </p>
                   </div>
@@ -274,17 +273,17 @@ export default function ConnectPage() {
                   </div>
                 </div>
 
-                <h1 className="text-2xl font-sf-pro-rounded font-medium text-[#222222] mb-3 tracking-[-0.02em]">
+                <h1 className="text-2xl font-brightside-sans font-medium text-[#222222] mb-3 tracking-[-0.02em]">
                   Scan the QR on your brightside
                 </h1>
-                <p className="text-base text-[#666666] font-sf-pro-rounded max-w-sm mx-auto mb-6 leading-relaxed">
+                <p className="text-base text-[#666666] font-brightside-sans max-w-sm mx-auto mb-6 leading-relaxed">
                   If your wallet is already on Lighter, you can bring it into Brightside with just one tap.
                 </p>
 
                 {/* Copy QR Code Button */}
                 <button
                   onClick={handleCopyQR}
-                  className="bg-[#FF6401] hover:bg-[#FF6402] text-white font-sf-pro-rounded font-semibold text-lg px-16 py-4 rounded-full transition-all duration-200 flex items-center justify-center gap-2 mx-auto"
+                  className="bg-[#FF6401] hover:bg-[#FF6402] text-white font-brightside-sans font-semibold text-lg px-16 py-4 rounded-full transition-all duration-200 flex items-center justify-center gap-2 mx-auto"
                 >
                   <Copy className="w-[18px] h-[18px]" />
                   Copy QR Code
