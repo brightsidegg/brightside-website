@@ -25,7 +25,7 @@ export default function TermsConditionsPage() {
               <p className="font-semibold text-neutral-900 mb-2">To make these Terms easier to read:</p>
               <ul className="space-y-1 text-sm text-neutral-700">
                 <li><strong>Brightside</strong> refers to the mobile application operated by Juicy Labs Ltd.</li>
-                <li><strong>Company or we</strong> refers to Juicy Labs Ltd, a private limited company incorporated in UK</li>
+                <li><strong>Company or we</strong> refers to Juicy Labs Ltd, a private limited company.</li>
                 <li><strong>App</strong> means the Brightside mobile application.</li>
                 <li><strong>Services</strong> include the App, the website, and any related functionality provided by us.</li>
               </ul>
