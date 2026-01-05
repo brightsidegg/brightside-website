@@ -36,6 +36,21 @@ export default function SiteFooter() {
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-center py-6 mb-6 text-center font-brightside-sans font-medium max-w-3xl mx-auto px-4 sm:px-0">
+          <p className="text-xs text-[#666666] mb-4">Charts powered by</p>
+          <a
+            href="https://www.tradingview.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mb-4 hover:opacity-80 transition-opacity"
+            aria-label="TradingView Main Site"
+          >
+            <img src="/black-full-logo.png" alt="TradingView Logo" className="h-[28px] w-auto" />
+          </a>
+          <p className="text-xs text-[#666666] max-w-2xl">
+            TradingView provides tools like the Economic Calendar and Stock Screener for easy market analysis and trade planning.
+          </p>
+        </div>
         <motion.div
           className="flex flex-col items-center gap-6 sm:hidden"
           initial={{ opacity: 0, y: 24 }}
