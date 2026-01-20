@@ -48,7 +48,14 @@ export default function SiteFooter() {
             <img src="/black-full-logo.png" alt="TradingView Logo" className="h-[28px] w-auto" />
           </a>
           <p className="text-xs text-[#666666] max-w-2xl">
-            TradingView provides tools like the Economic Calendar and Stock Screener for easy market analysis and trade planning.
+            <a
+              href="https://www.tradingview.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              TradingView
+            </a>
+            {" "}provides tools like the Economic Calendar and Stock Screener for easy market analysis and trade planning.
           </p>
         </div>
         <motion.div
